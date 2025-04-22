@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+    <center></center>
+        <img src="log0.jpg" class="logo" alt="logo>">
+        
+        <button onclick="window.location.href ='locacao.html'">Locação</button>
+    </header>
+   
+
+    <section class="carrossel">
+        <div class="slides">
+            <img src="img1.png" class="slide ativo" alt="Imagem 1">
+            <img src="img2.png" class="slide" alt="Imagem 2">
+            <img src="img3.png" class="slide" alt="Imagem 3">
+        </div>
+    <!--&#10094 - botão para a esquerda
+        &#10095 - botão para a direita
+        -->
+        <button class="controle anterior" onclick="mudarSlide(-1)">&#10094;</button>
+        <button class="controle proximo" onclick="mudarSlide(1)">&#10095;</button>
+  
+</section>
+<main>
+    <div id="livros-container"></div>
+</main>
+
+
+<footer>
+    <h2>. 
+      By Biblioteca Municipal</h2>
+  </footer>
+
+  <!-- Modal de detalhes do produto -->
+  <div id="detalhes" class="modal oculto">
+    <div class="janela">
+      <div>
+        <h3>Detalhes do Livro</h3>
+        <button onclick="document.getElementById('detalhes').classList.add('oculto')">X</button>
+      </div>
+      <div id="conteudo"></div>
+      <button id="cadastrodelocacao" onclick="cadastrodelocacao()">Cadastro de Locação</button>
+    </div>
+  </div>
+
+  <script src="script1.js"></script>
+
+  <!-- Script JavaScript para o carrossel -->
+  <script>
+    // Define índice inicial e pega todos os slides
+    let slideIndex = 0;
+    let slides = document.querySelectorAll('.slide');
+
+    // Cria intervalo para mudança automática a cada 4 segundos
+    let interval = setInterval(() => mudarSlide(1), 4000);
+
+    // Função para exibir o slide atual com base no índice
+    function mostrarSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('ativo');
+        if (i === index) slide.classList.add('ativo');
+      });
+    }
+
+    // Função que altera o slide com base no clique dos botões ou no tempo
+    function mudarSlide(direcao) {
+      slideIndex = (slideIndex + direcao + slides.length) % slides.length;
+      mostrarSlide(slideIndex);
+
+      // Reinicia o temporizador após navegação manual
+      clearInterval(interval);
+      interval = setInterval(() => mudarSlide(1), 4000);
+    }
+
+    // Mostra o primeiro slide ao carregar a página
+    document.addEventListener("DOMContentLoaded", () => {
+      mostrarSlide(slideIndex);
+    });
+  </script>
+</body>
+</html>

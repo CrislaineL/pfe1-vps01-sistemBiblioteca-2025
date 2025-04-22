@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+:root{
+--c1: #E4C1F9 ;
+--c2: #F9F5FF ;
+--c3: #F2E6FF ;
+--c4: #5E4B8A ;
+--c5: #A77BCA ;
+--t1: rgba(0, 0, 0, 0.8)  ;
+--t2: rgba(255, 255, 255, 0.8) ;
+}
+body{
+background-color: var(--c2);
+width: 100vw;
+height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+}
+
+
+
+header,footer{
+    background-color: var(--c4);
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content:space-around;
+    
+    & h2 {
+
+       font-family: 'Courier New', Courier, monospace;
+       color: var(--c4);
+
+    }
+    .logo{
+        width: 5%;
+        height: 100%;
+        
+        
+    }
+
+    & button{
+        
+        background-color: var(--c4);
+        border: none;
+        padding: 5px 15px;
+        border-radius: 50px;
+        box-shadow: 0 0 10px var(--c1);
+        cursor: pointer;
+        color: white;
+    }
+}
+main{
+    width: 100%;
+    height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--c5);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--t2);
+    gap: 10px;
+    color: white;
+
+    & img {
+        max-width: 250px;
+       
+    }
+    & button{
+        background-color: var(--c1);
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px var(--c4);
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+    }
+}
+
+.modal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--t2);
+}
+
+.janela{
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--c1);
+    box-shadow: 0 0 5px var(--t1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+    & div{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    & button{
+        background-color: var(--c4);
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px var(--t2);
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    & form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+input{
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px var(--t2);
+        font-weight: bold;
+}
+
+.oculto{
+    display: none;
+}
+
+@media screen and ( max-width: 770px){
+   .janela {
+    min-width: 90%;
+   }
+}
+
+#conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    align-items: flex-start;
+    padding: 20px; 
+    max-width: 300px; 
+}
+
+#conteudo img {
+    width: 100%; 
+    height: auto; 
+}
+
+#conteudo h3 {
+    margin: 0; 
+}
+
+#conteudo p {
+    margin: 5px 0; 
+}
+.carrossel {
+    position: relative;
+    width: 100vw; 
+    height: 300vh; 
+    overflow: hidden;
+    margin: 0;
+  }
+  
+  .slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide {
+    flex: 0 0 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: none;
+  }
+  
+  .slide.ativo {
+    display: block;
+  }
+  
+  .controle {
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .controle.anterior {
+    left: 10px;
+  }
+  
+  .controle.proximo {
+    right: 10px;
+  }
+  
